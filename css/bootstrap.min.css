@@ -3631,7 +3631,7 @@ fieldset:disabled .btn {
 }
 .nav-link.disabled {
     color: #6c757d;
-    pointer-events: none;
+    /* pointer-events: none; */
     cursor: default;
 }
 .nav-tabs {

@@ -1,3 +1,5 @@
+
+
 (function ($) {
 	"use strict";
 
@@ -11,6 +13,16 @@
 			'overflow': 'visible'
 		});
 	});
+	////////custom
+	document.querySelectorAll('a.nav-link').forEach(link => {
+		link.addEventListener('click', function (event) {
+			event.stopPropagation(); // Prevent other event listeners from interfering
+			window.location.href = this.href; // Force the navigation
+		});
+	});
+
+
+
 
 
 
@@ -107,7 +119,7 @@
 		loop: true,
 		margin: 10,
 		dots: false,
-		nav: false,
+		nav: true,
 		navText: ['<i class="fal fa-long-arrow-left"></i>', '<i class="fal fa-long-arrow-right"></i>'],
 		mouseDrag: false,
 		autoplay: true,
@@ -115,15 +127,15 @@
 		responsive: {
 			0: {
 				items: 1,
-				nav: false,
+				
 			},
 			600: {
 				items: 1,
-				nav: false,
+				
 			},
 			1000: {
 				items: 1,
-				nav: false,
+				
 			},
 			1200: {
 				items: 1
@@ -216,7 +228,7 @@
 				margin: 0,
 				center: false,
 			},
-			
+
 			577: {
 				items: 3,
 			},
@@ -560,20 +572,20 @@
 			0: {
 				items: 1,
 				nav: false,
-				dots:true,
+				dots: true,
 			},
 			600: {
 				items: 2,
-				dots:true,
+				dots: true,
 
 			},
 			992: {
 				items: 3,
-				dots:true,
+				dots: true,
 			},
 			1200: {
 				items: 4,
-				dots:true,
+				dots: true,
 			}
 		}
 	})
@@ -734,30 +746,30 @@
 
 
 
-	
-	
 
-// onepage-scroll
-var singlepage = $('.single-page-nav');
 
-if(singlepage.length) {
-	$('.single-page-nav').singlePageNav({
-	offset: $('.single-page-nav').outerHeight(),
-	threshold: 120,
-	speed: 400,
-	currentClass: 'current',
-	easing: 'swing',
-	filter: ':not(.external)',
-	onComplete: function() {
-	console.log('done scrolling');
+
+	// onepage-scroll
+	var singlepage = $('.single-page-nav');
+
+	if (singlepage.length) {
+		$('.single-page-nav').singlePageNav({
+			offset: $('.single-page-nav').outerHeight(),
+			threshold: 120,
+			speed: 400,
+			currentClass: 'current',
+			easing: 'swing',
+			filter: ':not(.external)',
+			onComplete: function () {
+				console.log('done scrolling');
+			}
+		});
 	}
+	// slidebar hide
+	$(".onepage-side-mobile-menu a").on("click", function () {
+		$(".slide-bar").removeClass("show");
+		$(".body-overlay").removeClass("active");
 	});
-}
-// slidebar hide
-$(".onepage-side-mobile-menu a").on("click", function () {
-	$(".slide-bar").removeClass("show");
-	$(".body-overlay").removeClass("active");
-});
 
 
 
